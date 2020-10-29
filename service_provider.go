@@ -20,7 +20,7 @@ import (
 	dsig "github.com/russellhaering/goxmldsig"
 	"github.com/russellhaering/goxmldsig/etreeutils"
 
-	"github.com/crewjam/saml/xmlenc"
+	"github.com/harish-chandramowli/saml/xmlenc"
 )
 
 // NameIDFormat is the format of the id
@@ -494,14 +494,14 @@ func (sp *ServiceProvider) validateDestination(response []byte, responseDom *Res
 		return err
 	}
 
-	signed, err := responseIsSigned(responseXML)
-	if err != nil {
-		return err
-	}
+	//signed, err := responseIsSigned(responseXML)
+	//if err != nil {
+	//	return err
+	//}
 
 	// Compare if the response is signed OR the Destination is provided.
 	// (Even if the response is not signed, if the Destination is set it must match.)
-	if signed || responseDom.Destination != "" {
+	if responseDom.Destination != "" {
 		if responseDom.Destination != sp.AcsURL.String() {
 			return fmt.Errorf("`Destination` does not match AcsURL (expected %q, actual %q)", sp.AcsURL.String(), responseDom.Destination)
 		}

@@ -15,8 +15,8 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/crewjam/saml"
-	"github.com/crewjam/saml/logger"
+	"github.com/harish-chandramowli/saml"
+	"github.com/harish-chandramowli/saml/logger"
 )
 
 type testRandomReader struct {
